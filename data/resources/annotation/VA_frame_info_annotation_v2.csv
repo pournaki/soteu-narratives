@@ -1,0 +1,76 @@
+INDEX,VA_CATEGORY,VA_LABEL,DEFINITION,,,,ANNOTATION_TW,ANNOTATION_AP,FINAL_ANNOTATION
+2,va:0003f,CARRY_TRANSPORT,An agent CARRIES-TRANSPORTS a theme to a destination from a source using an instrument in favour of a beneficiary (+attribute),bn:00084554v,"Move while supporting, either in a vehicle or in one's hands or on one's body","Carry, transport.",N,B,B
+5,va:0008f,CO-OPT,An agent CO OPTS a patient to achieve a goal,bn:00085214v,Choose or elect as a fellow member or colleague,"Co-opt, proselytize, assimilate.",N,B,B
+9,va:0012f,RETAIN_KEEP_SAVE-MONEY,A cause makes an agent RETAINS-KEEPS-SAVES from a source to a destination a theme in favour of a beneficiary for a purpose in a location (+attribute),bn:00092928v,Hold back within,"Keep, save (money).",B,N,N
+11,va:0015f,ACHIEVE,An agent ACHIEVES a goal,bn:00082226v,To gain with effort,"Achieve, gain with effort.",B,N,B
+14,va:0018f,INCITE_INDUCE,An agent INCITES-INDUCES a patient using an instrument to do a result (+attribute),bn:00082313v,Give an incentive for action,"Spur, provoke, induce.",B,N,B
+15,va:0021f,SUBJECTIVE-JUDGING,A cause makes an agent JUDGE a theme as a value,bn:00087763v,Form a critical opinion of,"Judge, grade.",B,N,N
+17,va:0024f,PROVE,An agent PROVES a theme to a recipient using an instrument (+attribute),bn:00086567v,"Establish the validity of something, as by an example, explanation or experiment","Prove, demonstrate, evidence.",B,N,B
+19,va:0029f,STOP,An agent STOPS a theme or a topic in a location for an extent or from a source to a goal using an instrument (+attribute),bn:00089154v,"Come to a halt, stop moving","Stop, block, halt.",A,A,A
+35,va:0052f,HARMONIZE,An agent HARMONIZES a theme with a goal for a purpose,bn:00089218v,Bring (several things) into consonance or relate harmoniously,"Harmonize, readapt, concord.",A,B,B
+36,va:0053f,DISAPPEAR,An agent makes a patient DISAPPEAR from a location for an extent to a destination-state,bn:00086880v,Become invisible or unnoticeable,"Disappear, vanish.",A,N,A
+39,va:0057f,RESERVE,An agent reserve a THEME for a beneficiary (+attribute),bn:00083774v,Arrange for and reserve (something for someone else) in advance,"Reserve, hold, book up.",B,N,N
+51,va:0071f,LURE_ENTICE,An agent LURES-ENTICES an experiencer with an instrument from a source to achieve a goal,bn:00087689v,Provoke someone to do something through (often false or exaggerated) promises or persuasion,"Tempt, entice, lure.",A,N,A
+63,va:0089f,GROW_PLOW,An agent GROWS-PLOWS a patient with an instrument on a location,bn:00089085v,Cause to grow or develop,"Grow, fructify, crop.",B,N,B
+64,va:0091f,ADJUST_CORRECT,An agent ADJUSTS-CORRECTS a patient with an instrument from a source-state to a goal-state for a purpose producing a product,bn:00082357v,Alter or regulate so as to achieve accuracy or conform to a standard,"Adjust, correct.",B,N,B
+66,va:0093f,UNDERSTAND,An experiencer UNDERSTANDS a stimulus (+attribute),bn:00095375v,Know and comprehend the nature or meaning of,"Understand, realize.",B,N,N
+72,va:0103f,RESULT_CONSEQUENCE,An agent with a co-agent makes a theme RESULT-HAVE AS CONSEQUENCE a goal using an instrument,bn:00092913v,Come about or follow as a consequence,Have a result or a consequence.,N,B,B
+74,va:0105f,COME-FROM,An agent COMES FROM a source,bn:00091204v,Originate,"Come from, issue forth, originate in.",N,B,B
+76,va:0112f,COME-AFTER_FOLLOW-IN-TIME,An agent makes a theme COME AFTER-FOLLOW IN TIME a co-theme (+attribute),bn:00088422v,Be later in time,"Come after, follow (in time).",N,B,N
+80,va:0121f,COMMUNE,An agent gives COMMUNION to a theme (+attribute),bn:00093253v,"Give religious sanction to, such as through on oath","Administer Communion, bless.",B,N,B
+83,va:0125f,LEAD_GOVERN,An agent LEADS-GOVERNS a theme with an instrument for a beneficiary (+attribute),bn:00089260v,Be in charge of,"Lead, direct, chair.",N,B,B
+85,va:0128f,PRESERVE,An agent PRESERVES a patient against a theme,bn:00083242v,Keep or maintain in unaltered condition; cause to remain or last,"Preserve, conserve.",B,N,B
+93,va:0138f,CONTRACT-AN-ILLNESS_INFECT,An agent makes a patient CONTRACT-BE INFECTED BY a theme from a source,bn:00085727v,"Be stricken by an illness, fall victim to an illness","Contract an illness, infect.",A,N,A
+95,va:0140f,CRY,An agent CRIES a theme regarding a topic to a recipient,bn:00086122v,"Shed tears because of sadness, rage, or pain","Cry, wail, weep.",A,N,A
+96,va:0141f,KNOCK-DOWN,An agent KNOCKS DOWN a patient with an instrument for an extent from a source to a destination,bn:00086221v,Cause to come or go down,"Knock down, cut down, pull down.",N,A,A
+107,va:0155f,WASH_CLEAN,An agent WASHES-CLEANS a patient of a theme using an instrument having a result,bn:00085059v,Make clean by removing dirt filth or unwanted substances from,"Wash, clean, rinse.",B,N,B
+109,va:0157f,AMELIORATE,An agent AMELIORATES a patient of an extent using an instrument with a result starting from a material,bn:00082573v,To make better,"Refine, make better.",B,A,B
+110,va:0159f,CELEBRATE_PARTY,An agent CELEBRATES-PARTIES a theme (+attribute),bn:00084715v,Have a celebration,"Commemorate, celebrate.",B,N,B
+116,va:0170f,FIT,An agent makes a value FIT in a location,bn:00088240v,Be the right size or shape; fit correctly or as desired,"Fit, suit, accommodate.",B,N,B
+132,va:0200f,HAVE-SEX,A cause makes an agent HAVE SEX with a co-agent (+theme),bn:00083081v,Have sexual intercourse with,"Have sex, make out.",N,B,B
+138,va:0207f,STABILIZE_SUPPORT-PHYSICALLY,An agent STABILIZES-SUPPORTS PHYSICALLY a patient on a location using an instrument,bn:00083855v,Support or hold steady and make steadfast with or as if with a brace,"Stabilize physically, hold, brace.",N,B,B
+143,va:0219f,RAISE,An agent RAISES a theme of an extent on a location from a source to a destination,bn:00084110v,Raise from a lower to a higher position,"Lift, ascend, raise.",N,B,B
+146,va:0227f,PROPOSE,An agent PROPOSES a topic to a recipient to achieve a goal (+attribute),bn:00082417v,Make a proposal declare a plan for something,"Propose, suggest, submit.",B,N,N
+160,va:0245f,TAKE-SHELTER,An agent makes a theme TAKE SHELTER in a location (+attribute),bn:00093607v,Provide shelter for,Take shelter.,B,N,B
+170,va:0264f,ACCOMPANY,An agent ACCOMPANIES a theme from a source to a destination (+attribute),bn:00082222v,Go or travel along with,"Accompany, escort, go with.",N,B,B
+171,va:0266f,COMPENSATE,An agent COMPENSATE a theme with a co-theme,bn:00083045v,Bring into balance or equilibrium,"Compensate, equilibrate, balance.",N,B,B
+177,va:0279f,EARN,A theme EARNS an asset from a source in favour of a beneficiary,bn:00084089v,Earn on some commercial or business transaction; earn as salary or wages,Earn.,B,N,B
+186,va:0294f,FAKE,An agent FAKES a theme,bn:00085786v,Tamper with the purpose of deception,"Fake, manipulate, rig.",A,N,A
+187,va:0297f,CHASE,An agent CHASES a theme to a destination using an instrument,bn:00084831v,Go after with the intent to catch,"Chase, chase after, tail.",N,A,N
+188,va:0298f,HIRE,An agent HIRES a theme from a source (+attribute),bn:00087576v,Engage or hire for work,"Hire, enlist, recruit.",N,B,B
+193,va:0307f,ISOLATE,An agent ISOLATES a patient in favour of a beneficiary,bn:00089800v,Place or set apart,"Isolate, cloister.",N,A,A
+201,va:0318f,WARN,An agent WARNS a recipient of a topic,bn:00095642v,"Notify of danger, potential harm, or risk","Warn, admonish.",N,B,B
+203,va:0321f,GROUP,An agent GROUPS a theme from a source in a result using an instrument,bn:00082465v,Form a group or group together,"Crowd, group, assemble.",N,B,B
+234,va:0362f,BEFRIEND,An agent BEFRIENDS a co-agent,bn:00083329v,Become friends with,"Befriend, bond, relate.",B,A,B
+239,va:0372f,DEBASE_ADULTERATE,An agent DEBASES-ADULTERATES a patient for an extent using an instrument from a source to achieve a goal,bn:00082391v,"Corrupt, debase, or make impure by adding a foreign or inferior substance; often by replacing valuable ingredients with inferior ones","Devalue, debase.",A,N,A
+240,va:0373f,FACE_CHALLENGE,A cause makes an agent FACE-CHALLENGE a theme with a goal using an instrument (+attribute),bn:00085595v,Oppose as in hostility or a competition,"Face, confront, take on.",A,N,A
+243,va:0382f,CREATE_MATERIALIZE,An agent CREATES-MATERIALIZES a result with a co-agent using a material achieving a product for a beneficiary (+attribute),bn:00086010v,Pursue a creative activity; be engaged in a creative activity,"Create, design, compose.",B,N,B
+245,va:0385f,DELAY,An agent DELAYS a theme for an extent from a source to a destination,bn:00086514v,Cause to be slowed down or delayed,"Delay, retard, procrastinate.",A,N,A
+255,va:0401f,HOST_MEAL_INVITE,An agent HOSTS-GIVE A MEAL TO-INVITES a beneficiary,bn:00089484v,Be the host of or for,"Invite, receive, host.",N,B,B
+271,va:0424f,AFFIRM,An agent AFFIRMS a theme to a recipient (+attribute),bn:00082435v,To declare or affirm solemnly and formally as true,"Assert, affirm, report.",N,B,B
+285,va:0441f,BURN,An agent BURNS a patient using an instrument,bn:00084272v,Undergo combustion,"Burn, combust, sear.",N,A,N
+292,va:0449f,LIGHTEN,An agent LIGHTENS a patient of an extent,bn:00084052v,Make lighter or brighter,"Lighten, brighten.",B,N,B
+306,va:0470f,SLOW-DOWN,An agent SLOWS DOWN a patient from a source state to a destination state,bn:00086364v ,Lose velocity; move more slowly,"Slow down, decelerate, retard.",N,A,A
+316,va:0482f,MESS,An agent MESSES a patient in a location using an instrument,bn:00090749v,Make a mess of or create disorder in,"Mess up, ruffle, destabilize.",A,N,A
+318,va:0486f,OVERCOME_SURPASS,A theme OVERCOMES-SURPASSES a co-theme in an attribute of an extent,bn:00087795v,Be or do something to a greater degree,"Overcome, surpass, exceed.",A,B,A
+319,va:0487f,SIMPLIFY,An agent SIMPLIFIES a patient,bn:00093755v,Make simpler or easier or reduce in complexity or extent,"Simplify, facilitate, help.",B,N,B
+326,va:0500f,SPEED-UP,An agent SPEEDS UP a theme of an extent from source speed to a destination speed,bn:00083190v,Spend or use time,"Speed up, hasten, accelerate.",N,B,N
+347,va:0532f,BLIND,An agent BLINDS a patient with a theme,bn:00083604v,Render unable to see,"Blind, abacinate.",A,N,A
+348,va:0533f,FAIL_LOSE,A cause makes an agent FAILS-LOSE a theme from a source to a destination for an extent in a location with a co-agent,bn:00087967v,Be unsuccessful,"Fail, lose.",A,N,A
+356,va:0546f,FLATTER,An agent FLATTERS a patient with a topic,bn:00083550v,Praise somewhat dishonestly,"Adulate, flatter.",A,N,A
+364,va:0558f,FORGET,An agent FORGETS a theme,bn:00087488v,Remove completely from recognition or memory,"Forget, obliterate, unlearn.",A,N,A
+366,va:0560f,RESIGN_RETIRE,An agent RESIGNS-RETIRES from a source,bn:00090280v,Give up or retire from a position,"Withdraw, retire, resign.",A,N,A
+367,va:0561f,SPOIL,A cause makes a patient SPOIL with a result,bn:00088943v,Become unfit for consumption or use,"Spoil, wilt.",A,N,A
+373,va:0568f,REGRET_SORRY,An experiencer REGRETS is SORRY for a stimulus to a destination,bn:00092683v,Feel remorse for; feel sorry for; be contrite about,"Regret, repent.",A,N,A
+384,va:0580f,JOIN_CONNECT,An agent JOINS-CONNECTS a patient with a co-patient using an instrument having a result,bn:00084107v,Cause to become joined or linked,"Connect, join, link.",N,B,N
+385,va:0581f,DRIVE-BACK,An agent DRIVES BACK a theme from a source to a destination using an instrument (+attribute),bn:00087348v,Force or drive back,"Banish, deport, excommunicate.",A,N,A
+409,va:0619f,CAUSE-SMT,An agent CAUSES to a patient a result using an instrument,bn:00084699v,Give rise to; cause to happen or occur not always intentionally,"Cause, yield, account for something.",N,B,B
+410,va:0620f,ASCRIBE,An agent ASCRIBES an attribute to a theme,bn:00082815v,Attribute or credit to,"Ascribe, impute, credit.",N,B,B
+421,va:0631f,WELCOME,An agent WELCOMES a theme using an instrument (+attribute),bn:00092491v,Bid welcome to; greet upon arrival,"Welcome, salute, greet.",B,N,B
+422,va:0632f,AUX_MOD,_,_,_,_,,N,N
+426,va:1001f,AUXILIARY,_,_,_,_,,N,N
+427,va:1002f,LIGHT-VERB,_,_,_,_,,N,N
+428,va:1003f,DISCOURSE-FUNCTION,_,_,_,_,,N,N
+429,va:1004f,COPULA,_,_,_,_,,N,N
+430,va:1005f,MUST,_,_,_,_,,N,N
+431,va:1006f,MODAL,_,_,_,_,,N,N

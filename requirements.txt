@@ -1,0 +1,9 @@
+igraph
+pandas
+tabulate
+numpy
+scikit-learn
+matplotlib
+cairocffi
+penman
+tqdm

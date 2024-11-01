@@ -1,0 +1,83 @@
+* Documentation
+
+The following document provides details for the translation of AMR strings into a tabular format suitable for narrative analysis described in [insert_paper_link_here].
+
+** PENMAN-formatted AMR string to AMR graph
+For each AMR-parsed sentence in ~PENMAN~ format, we first decode it using the [[https://github.com/goodmami/penman][PENMAN library]], making sure to keep the edges in the direction of AMR convention (that means keeping ~ARG-of~ edges, since those typically denote qualifiations of concepts). Then, we transform this ~penman~ object into an ~igraph~ object. As a first step, this function categorizes nodes as predicates or concepts. Predicates are those nodes that have at least one outgoing ARG-edge and no incoming ~ARG-of~ edge. All other nodes are considered concepts. We need this distinction for the extraction of events. Then, it extracts attributes such as polarities or quantities from the ~penman~ object that are saved as dictionaries keyed by node ids which are added to the graph as graph attributes.
+
+Here is an example for the sentence in the paper:
+
+#+begin_src python
+import penman
+from src.amr_graphs import penman_to_igraph
+from src.amr_graphs import plot
+from penman.models import noop.model
+
+amr_string = AMR_STRING_HERE
+
+penman_object = penman.decode(amr_string,model=noop.model)
+G = penman_to_igraph(penman_object,amr_string)
+
+plot(G)
+#+end_src
+
+This will yield the following result:
+
+@@html:<img src="https://github.com/pournaki/soteu-narratives-internal/blob/main/doc/img/amr_graph_example.png" width="600px">@@
+
+** AMR graph to row(s) of the narrative trace table
+
+@@html:<img src="https://github.com/pournaki/soteu-narratives-internal/blob/main/doc/img/amr_to_table.png">@@
+
+Each predicate in the full AMR graph of a sentence induces an event that will be captured as (at least) one row in the narrative trace table. One key strength of the AMR representation is the possibility to easily observe the relationship /between/ the predicates, for instance, if one is the parent of another. In the example above, ~want-01~ is the parent of ~invest-01~. Therefore, the first step is to extract these hierarchical relationships and add them as another graph attribute using
+
+#+begin_src python
+from src.amr_graphs import add_parent_predicates_to_graph
+G = add_parent_predicates_to_graph(G)
+#+end_src
+
+*** Event subgraphs
+
+Now, we have all the necessary ingredients to extract event subgraphs from the full graph. Given a predicate, we compute all outgoing paths and cut them as soon as we hit the next predicate (this is where the next subgraph would start). The event subgraph is then spanned by the nodes that exist in these paths and the edges between them. 
+
+Once these subgraphs are extracted (using ~extract_event_subgraphs()~), we define the node roles within each of them based on their relationship with the predicate (using ~get_node_roles()~). 
+
+*** Actor subgraphs
+We define actors as those nodes that have an incoming ~ARG{x}~-relation. In the example above, ~person~ would be an actor, following this definition. However, we want to also keep track of the possible additional information linked to those actor nodes, like the ~:name~-edge linking ~person~ to ~Emmanuel Barroso~. Within each event subgraph, we therefore define actor subgraphs by taking the subgraph spanned by all outgoing edges of actor nodes (as implemented in ~node_to_actor_graph()~). Since we want the final output to be a `csv`, we need to transform those actor subgraphs into strings. This is done by concatenating all the nodes in the actor graph (as defined in ~actor_graph_to_label()~).
+
+Adding event subgraphs along with the actor labels to the graph object is packaged in the following meta-function:
+
+#+begin_src python
+from src.amr_graphs import add_event_subgraphs
+G = add_event_subgraphs(G)
+#+end_src
+
+From these subgraphs, we now extract all the information into a tabular format described in [[*Column specifications of the narrative trace table][the column specifications]]:
+
+#+begin_src python
+from src.helpers import subgraph_to_csvrows,rowlist_to_df
+rows = subgraph_to_csvrows(sg,sg_id)
+df = rowlist_to_df(rows)
+#+end_src
+
+** Identifying adjectives
+AMR does not formally distinguish parts of speech (POS), there is therefore no immediate way to know whether a given node is an adjective. POS information is however contained for each frame in the PropBank database. Based on the latest Propbank frameset, we generated the file [[../data/resources/pbid2pos.csv][pbid2pos.csv]] that we use to identify adjectives by checking the node label against this list. For node labels that are not in this list, we check whether they exist in a [[../data/resources/english_adjectives.csv][list of English adjectives]] to finally determine whether they are an adjective or not.
+
+** Column specifications of the narrative trace table
+- ~event_id~: identifier of the event subgraph the row has been extracted from
+- ~sentence_id~: identifier of the sentence the row has been extracted from
+- ~predicate_pb~: PropBank label of the event's predicate
+- ~predicate_va~: VerbAtlas label of the event's predicate
+- ~predicate_pol~: polarity of the predicate
+- ~predicate_nid~: AMR node id of the predicate
+- ~hierarchy_level~: hierarchy level of the event in the AMR graph
+- ~parent_predicate_pb~: PropBank label of the event's parent predicate
+- ~parent_predicate_va~: VerbAtlas label of the event's parent predicate
+- ~parent_predicate_pol~: polarity of the event's parent predicate
+- ~parent_event_id~: identifier of the parent event subgraph
+- ~:ARG{x}~: ARG{x} of the event
+- ~:ARG{x}_pol~: polarity of the ARG{x}
+- ~:ARG{x}_adj~: adjective(s) associated to ARG{x}
+- ~:ARG{x}_adj_pol~: polarity of the adjective(s) associated to ARG{x}
+- ~:ARG{x}_nid~: AMR node id of ARG{x}
+- ~amr_string~: full AMR string of the original sentence

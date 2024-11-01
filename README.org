@@ -1,0 +1,59 @@
+* A graph-based approach to extracting narrative signals from public discourse
+
+This repository contains the code to reproduce the results from *A graph-based approach to extracting narrative signals from public discourse* [insert arXiv link].
+
+** Quick start
+First, install the required libraries:
+#+begin_src bash
+~ pip install -r requirements.txt
+#+end_src
+We provide the AMR-parsed SOtEU speeches under ~data/soteu_speeches_sentences_amr.csv~. They were parsed using [[https://github.com/IBM/transition-amr-parser][IBM's Transition-based Neural Parser]] with the pre-trained model ~AMR2-joint-ontowiki-seed42~. If you want to parse them yourself, please refer to the next section.
+
+Use this command to build the narrative trace table from the parsed AMR strings. It will generate the file ~results/soteu_narrativetable.csv~.
+
+#+begin_src bash
+~ python build_narrativetable.py data/soteu_speeches_sentences_amr.csv results/soteu_narrativetable.csv
+#+end_src
+
+Then, you can run the Jupyter notebook ~analysis.ipynb~ that contains code to query the table and generate the results presented in the paper. For additional information on how the AMR graphs are processed and a detailed specification of the narrative trace table's columns, please refer to the [[doc/DOCUMENTATION.org][documentation]].
+
+** Using your own corpus
+AMR parsing using [[https://github.com/IBM/transition-amr-parser][IBM's Transition-based Neural Parser]] is currently only supported on Python 3.8. We recommend installing [[https://github.com/pournaki/transition-amr-parser][our fork]] by following the instructions on the README page.
+
+Once you have installed the parser, the corpus needs to be preprocessed. Since the corpus will be parsed sentence-wise, the documents need to be split into sentences first. The required data format for preprocessing is a csv that contains (at least) the following columns:
+
+| doc_id | text |
+|--------+------|
+| str    | str  |
+
+Once you made sure these columns exist in the corpus file, run the following command to split the corpus into sentences suitable for AMR parsing:
+
+#+begin_src bash
+~ python preprocess-corpus.py <input_file_path> <output_file_path>
+#+end_src
+
+Pre-processing will generate a csv in the following format, where ~sentence_id~ is ~{doc_id}_{sentence_idx}~ (the first sentence of the third document would therefore be ~2_0~):
+
+| doc_id | sentence_id | sentence |
+|--------+-------------+----------|
+| str    | str         | str      |
+
+Now, your corpus is ready to be parsed. Run the following command to parse it
+
+#+begin_src bash
+~ python parse-corpus.py <input_file_path> <output_file_path> <pretrained-model-name>
+#+end_src
+
+Replace ~<input_file_path>~ and ~<output_file_path>~ by the respective filenames and ~<pretrained-model-name>~ by any model from the [[https://github.com/pournaki/transition-amr-parser?tab=readme-ov-file#available-pretrained-model-checkpoints][list of available models]]. 
+
+This will generate a file in the following format:
+
+| doc_id | sentence_id | amr_string |
+|--------+-------------+------------|
+| str    | str         | str        |
+
+You can now build a narrative table using 
+
+#+begin_src bash
+~ python build_narrativetable.py <path_to_amr_file> <output_path>
+#+end_src
