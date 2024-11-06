@@ -65,60 +65,20 @@ def subgraph_to_csvrows(sg,sg_id):
     root_idx = id2idx[root_id]
     root_neighbors_idx = graph.neighbors(root_id,mode="out")
     
-    for n in root_neighbors_idx:
-        name = sg['graph'].vs[n]['label']
+    ## make sure to assign the "and" edges properly
+    and_neighbors = []
+    for n in root_neighbors_idx:    
+        name = sg['graph'].vs[n]['label']    
         if name == "and":
-            and_neighbors = graph.neighbors(n,mode="out")
-            root_neighbors_idx.extend(and_neighbors)
+            new_neighbors = graph.neighbors(n,mode="out")
+            and_neighbors.extend(new_neighbors)
+    and_neighbors = list(set(and_neighbors))
+    root_neighbors_idx.extend(and_neighbors)
+    root_neighbors_idx = list(set(root_neighbors_idx))    
+    
     root_neighbors = [graph.vs['name'][i] for i in root_neighbors_idx]    
     roledict = sg['nid2role']
-                
-#     for rn,v in roledict.items():
-#         role = str(roledict[rn]['role_inf'])
-        
-#         ## ! DEAL WITH DOUBLE ROLES LATER !
-#         if "ARG" in role and "|" not in role and "-of" not in role:
-            
-#             ## check if the role already exists in the row
-#             if role not in row.keys():            
-#                 row[role] = n2a[rn].lower()            
-#                 row[f"{role}_pol"] = nid2polarity[rn]
-#                 row[f"{role}_nid"] = rn
-#                 ## check if there are adjectives in that guy
-#                 actorgraph = n2ag[rn]
-#                 if type(actorgraph) == ig.Graph:
-#                     if "j" in actorgraph.vs['pos']:
-#                         adjectives = ""
-#                         for vertex in actorgraph.vs:
-#                             if vertex['pos'] == "j":
-#                                 adjectives+=f"{vertex['label'].lower()}|"
-#                         row[f"{role}_adj"] = adjectives[:-1]
-#                 else:
-#                     row[f"{role}_adj"] = str(np.nan)
-#             else:
-#                 row[role] += f"||{n2a[rn].lower()}"
-#                 row[f"{role}_pol"] += f"||{nid2polarity[rn]}"
-#                 row[f"{role}_nid"] += f"||{rn}"
-#                 ## check if there are adjectives in that guy
-#                 actorgraph = n2ag[rn]
-#                 if type(actorgraph) == ig.Graph:
-#                     if "j" in actorgraph.vs['pos']:
-#                         adjectives = ""
-#                         for vertex in actorgraph.vs:
-#                             if vertex['pos'] == "j":
-#                                 adjectives+=f"{vertex['label'].lower()}|"
-#                         try:
-#                             row[f"{role}_adj"] += f"||{adjectives[:-1]}"
-#                         except KeyError:
-#                             row[f"{role}_adj"] = f"{str(np.nan)}||{adjectives[:-1]}"
-#                 else:
-#                     try:
-#                         row[f"{role}_adj"] += f"||{str(np.nan)}"
-#                     except KeyError:
-#                         row[f"{role}_adj"] = f"{str(np.nan)}||{str(np.nan)}"
-                        
-                
-    
+                    
     row['hierarchy_level'] = sg['hierarchy_level']
     row['parent_predicate_va'] = sg['parent_root_label_va']
     row['parent_predicate_pb'] = sg['parent_root_label_pb']    
